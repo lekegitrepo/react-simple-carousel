@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from './carousel';
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <header className="App-header">
        <h1> Carousel </h1>
       </header>
+      <Carousel />
     </div>
   );
 }
