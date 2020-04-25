@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Arrow = ({ direction, clickFunction, glyph }) => (
   <div
     className={ `slide-arrow ${direction}` }

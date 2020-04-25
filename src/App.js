@@ -5,9 +5,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/*<header className="App-header">
        <h1> Carousel </h1>
-      </header>
+      </header>*/}
       <Carousel />
     </div>
   );
