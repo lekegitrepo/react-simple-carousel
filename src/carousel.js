@@ -17,6 +17,17 @@ class Carousel extends React.Component {
     this.previousSlide = this.previousSlide.bind(this);
   }
 
+  componentDidMount(){
+    this.indexCount = setInterval(
+      () => this.nextSlide(),
+      5000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.indexCount);
+  }
+
   previousSlide () {
     const lastIndex = imgUrls.length - 1;
     const { currentImageIndex } = this.state;
@@ -29,14 +40,18 @@ class Carousel extends React.Component {
   }
 
   nextSlide () {
-    const lastIndex = imgUrls.length - 1;
-    const { currentImageIndex } = this.state;
-    const shouldResetIndex = currentImageIndex === lastIndex;
-    const index =  shouldResetIndex ? 0 : currentImageIndex + 1;
+    const index =  this.incrementIndex();
 
     this.setState({
       currentImageIndex: index
     });
+  }
+
+  incrementIndex(){
+    const lastIndex = imgUrls.length - 1;
+    const { currentImageIndex } = this.state;
+    const shouldResetIndex = currentImageIndex === lastIndex;
+    return shouldResetIndex ? 0 : currentImageIndex + 1;
   }
 
   render () {
